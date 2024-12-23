@@ -12,8 +12,8 @@ export TZ=US/Eastern
 this_year=$(date '+%Y')
 today=$(date '+%Y%m%d')
 
-for year in $(jot - 2015 "$this_year" 1); do
-    for day in $(jot 25); do
+for year in $(seq 2015 "$this_year"); do
+    for day in $(seq 25); do
         if [ "$(printf "%4d%02d%02d" "$year" 12 "$day")" -le "$today" ]; then
             fn="input/$year/day$day.txt"
             if [ ! -e "$fn" ]; then
